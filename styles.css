@@ -1,7 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,300;9..40,500;9..40,800;9..40,1000&family=Josefin+Sans:wght@300;400;600&display=swap");
+/*- Family: [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans)
+- Weights: 300, 400, 600 */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+}
+
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  --linear-gradient-1: linear-gradient(
+    135deg,
+    hsl(0, 0%, 100%),
+    hsl(0, 100%, 98%)
+  );
+  --linear-gradient-2: linear-gradient(
+    135deg,
+    hsl(0, 80%, 86%),
+    hsl(0, 74%, 74%)
+  );
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-top: 50px;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+  justify-content: flex-start;
+  background-image: url(/images/bg-pattern-desktop.svg);
+  background-size: cover;
+  padding-left: 200px;
+}
+
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.headingfirst {
+  font-size: 5rem;
+  font-weight: 300;
+  color: var(--desaturated-red);
+}
+.coming-soon {
+  margin-top: 200px;
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.client-msg {
+  margin-top: 20px;
+  max-width: 400px;
+  color: var(--desaturated-red);
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 38%;
+  padding: 11px;
+  border: 1px solid var(--desaturated-red);
+  border-radius: 30px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  text-indent: 10px;
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: var(--soft-red);
+  font-size: 10px;
+  font-weight: 300;
+}
+
+input:focus::placeholder {
+  color: black;
+  font-weight: 300;
+}
+
+.error-message {
+  color: var(--soft-red);
+  font-size: 10px;
+  font-weight: 300;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+button {
+  position: absolute;
+  padding: 8px 40px;
+  transform: translateX(300px);
+  border: none;
+  border-radius: 30px;
+  background: var(--linear-gradient-2);
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--linear-gradient-2);
+  border-radius: 30px;
+  opacity: 0;
+  z-index: -1;
+}
+
+button:hover::before,
+button:active::before {
+  opacity: 50%;
+}
+
+button:active {
+  background: var(--linear-gradient-1);
+  box-shadow: 0 0 10px var(--linear-gradient-1);
+}
+
+button:hover {
+  background: var(--linear-gradient-1);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.error-icon {
+  position: absolute;
+  display: none;
+  transform: translateX(270px);
+}
+
+@media (max-width: 375px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo-container {
+    margin-left: 20px;
+    transform: translateY(-500px);
+  }
+
+  .left-section {
+    margin-top: 50px;
+    width: 100%;
+    order: 3;
+    padding-left: 0;
+    overflow: none;
+  }
+
+  .right-section {
+    margin-top: 200px;
+    width: 100%;
+    order: 2;
+    padding-left: 0;
+    overflow: none;
+  }
+
+  .coming-soon {
+    transform: translateY(-300px);
+    text-align: center;
+  }
+
+  .client-msg {
+    transform: translateY(-250px);
+    text-align: center;
+    max-width: 100%;
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .input-container {
+    transform: translateY(-200px);
+    padding: 20px;
+    width: 70%;
+  }
+  button {
+    padding: 17px 40px;
+    transform: translateX(220px);
+  }
+  .error-icon {
+    transform: translateX(190px);
+  }
+  .responsive-image {
+    background-image: url("/images/hero-mobile.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: none;
+    width: 100%;
+    height: 30vh;
+  }
+  .desktopimg {
+    display: none;
+  }
+  .error-message {
+    transform: translateY(-200px);
+  }
 }
